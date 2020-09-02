@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Bienvenidos</h1>
-
-    <form action="checkuser.php" method="post" name="verificar">
-        <input type="text" name="nombre" placeholder="Nombre" id="nombre_usuario" autofocus><br>
-        <input type="password" name="contraseña" placeholder="Contraseña" id="contraseña_usuario"><br>
-        <input type="submit" value="Registrar" id="btn_verificar">
-    </form>
-    <script src="main.js"></script>
+    <div class="main_container">
+        <h1>Bienvenidos</h1>
+        <p>Este es el servicio estudiantil de registro y verificacion de calificaciones</p>
+        <hr>
+        <p>Si es estudiante puede verificar sus calificaciones</p>
+        <p>Si es docente puede insertar y modificar calificaciones</p>
+        <a href="login.php"><button type="button" id="btn_comenzar">Comenzar</button></a>
+    </div>
 </body>
 </html>

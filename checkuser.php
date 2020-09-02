@@ -12,7 +12,7 @@ $resultado = $conexion->query($consulta);
 while ($row = $resultado->fetch_assoc()) {
 
     if ($row['nombre'] === $nombre && $row['contraseña'] === $contraseña) {
-        header("Location:vistaUsuarios.php");
+        header("Location:paginaPrincipal.php");
     } else {
         echo "Usuario o contraseña invalido";
     }

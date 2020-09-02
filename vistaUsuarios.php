@@ -13,6 +13,13 @@ $consulta = "SELECT * FROM notas_alumnos";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav class="topnav">
+        <a href="#">Salir</a>
+        <a href="#">Modificar</a>
+        <a href="#">Ingresar</a>
+        <a href="vistaUsuarios.php">Notas</a>
+        <a style="float:left" href="paginaPrincipal.php">Home</a>
+    </nav>
     <div class="tabla_estudiantes">
         <div class="tabla_title">Datos de usuario</div>
         <div class="tabla_header">Nombre</div>
