@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+echo "Sesion iniciada $_SESSION[usuario]";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
