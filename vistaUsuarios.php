@@ -16,7 +16,7 @@ $consulta = "SELECT * FROM notas_alumnos";
 <nav class="topnav">
         <a href="#">Salir</a>
         <a href="#">Modificar</a>
-        <a href="#">Ingresar</a>
+        <a href="insertarUsuario.php">insertar</a>
         <a href="vistaUsuarios.php">Notas</a>
         <a style="float:left" href="paginaPrincipal.php">Home</a>
     </nav>

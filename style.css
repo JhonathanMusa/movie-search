@@ -10,7 +10,7 @@ body {
 
 /* INICIO DE SESSION */
 
-.container_login{
+.container_login {
   width: 15%;
   background: #f1f1f1;
   margin: 0 auto;
@@ -40,7 +40,7 @@ input {
 
 /* PAGINA PRINCIPAL */
 
-.main_container  {
+.main_container {
   width: 70%;
   height: auto;
   margin: 0 auto;
@@ -103,6 +103,27 @@ input {
   font-weight: bold;
   font-size: 1.5em;
 }
+
+/* FIN MOSTRAR INFORMACION */
+
+/* INSERTAR NOTAS */
+
+#btn_agregar {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  color: #eee;
+  cursor: pointer;
+  width: 20%;
+  font-weight: bold;
+  background: linear-gradient(to left, #44a08d, #093637);
+}
+
+#btn_agregar:hover {
+  background: linear-gradient(to left, #51bda7, #116668);
+}
+
+/* FIN INSERTAR NOTAS */
 
 /* BARRA NAVEGACION */
 
