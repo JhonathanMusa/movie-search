@@ -1,23 +1,18 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Title } from "./components/Title";
 import { Movie } from "./components/Movie";
 import { SearchMovie } from "./components/SearchMovie";
 import "./App.css";
 import "bulma/css/bulma.css";
 
-class App extends Component {
-  state = {
-    movieResults: [],
+function App() {
+  const [movieResults, setMovieResults] = useState([]);
+
+  const handleResults = (results) => {
+    setMovieResults(results);
   };
 
-  _handleResults = (results) => {
-    this.setState({
-      movieResults: results,
-    });
-  };
-
-  _renderResults() {
-    const { movieResults } = this.state;
+  const renderResults = () => {
     return movieResults.map((movie) => {
       return (
         <Movie
@@ -29,19 +24,17 @@ class App extends Component {
         />
       );
     });
-  }
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <Title>Search Movie</Title>
-        <div className="SearchForm-wrapper">
-          <SearchMovie onResults={this._handleResults} />
-        </div>
-        {this._renderResults()}
+  return (
+    <div className="App">
+      <Title>Search Movie</Title>
+      <div className="SearchForm-wrapper">
+        <SearchMovie onResults={handleResults} />
       </div>
-    );
-  }
+      {renderResults()}
+    </div>
+  );
 }
 
 export default App;
