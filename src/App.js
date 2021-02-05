@@ -1,30 +1,23 @@
-import React, { useState } from "react";
-import { Title } from "./components/Title";
-import { SearchMovie } from "./components/SearchMovie";
-import { MoviesList } from "./components/MoviesList";
+import React, { Component } from "react";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom"; 
+
+import Home from "./pages/Home";
+import { Detail } from "./pages/Details";
+
 import "./App.css";
 import "bulma/css/bulma.css";
 
-function App() {
-  const [movieResults, setMovieResults] = useState([]);
-
-  const handleResults = (results) => {
-    setMovieResults(results);
-  };
-
-  const renderResults = () => {
-    return <MoviesList movies={movieResults} />;
-  };
-
-  return (
-    <div className="App">
-      <Title>Search Movie</Title>
-      <div className="SearchForm-wrapper">
-        <SearchMovie onResults={handleResults} />
-      </div>
-      {renderResults()}
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/detail/:movieId" component={Detail} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

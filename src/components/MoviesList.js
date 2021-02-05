@@ -2,18 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Movie } from "./Movie";
 
-export const MoviesList = (props) => {
+export const MoviesList = ({ movies }) => {
   return (
     <div className="MoviesList">
-      {props.movies.map((movie) => {
+      {movies.map((movie) => {
         return (
-          <Movie
-            className="MoviesList-item"
-            key={movie.imdbID}
-            poster={movie.Poster}
-            title={movie.Title}
-            year={movie.Year}
-          />
+          <div key={movie.imdbID} className="MovieList-item">
+            <Movie
+              id={movie.imdbID}
+              poster={movie.Poster}
+              title={movie.Title}
+              year={movie.Year}
+            />
+          </div>
         );
       })}
     </div>
@@ -23,5 +24,3 @@ export const MoviesList = (props) => {
 MoviesList.propTypes = {
   movies: PropTypes.array,
 };
-
-
