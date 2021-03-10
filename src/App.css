@@ -1,4 +1,5 @@
 .App {
+  padding-top: 36px;
   text-align: center;
 }
 
@@ -7,6 +8,12 @@
   justify-content: center;
 }
 
+/* .MoviesList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px;
+} */
+
 .MoviesList {
   display: flex;
   flex-wrap: wrap;
@@ -14,11 +21,24 @@
   padding: 16px;
 }
 
+/* .MoviesList-item {
+  margin-bottom: 24px;
+  width: 100px;
+} */
+
 .MoviesList-item {
   margin-bottom: 24px;
-  width: 40px; 
+  width: 40px;
 }
 
-.container{
+.container {
   text-align: center;
+}
+
+.container > img {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  margin-bottom: 20px;
 }

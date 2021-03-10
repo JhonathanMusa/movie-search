@@ -8,7 +8,7 @@ const Home = () => {
 
   const handleResults = (results) => {
     setMovieResults(results);
-    console.log(results);
+
   };
 
   const renderResults = () => {

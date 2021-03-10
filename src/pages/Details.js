@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BtnBackHome from "../components/BtnBackHome";
 
 const OMDB_KEY = "1989edaf";
 
@@ -21,7 +22,6 @@ export default function Detail(props) {
           Metascore: data.Metascore,
           Plot: data.Plot,
         });
-        console.log({ data });
       } catch (error) {
         console.log(error);
       }
@@ -30,12 +30,15 @@ export default function Detail(props) {
   }, [movieId]);
 
   return (
-    <div className="container">
-      <h1>{movie.Title}</h1>
+    <div className="container is-fluid">
       <img src={movie.Poster} alt={movie.Title} />
-      <h3>{movie.Actors}</h3>
+      <strong>
+        <p>{movie.Title}</p>
+      </strong>
+      <p>{movie.Actors}</p>
       <span>{movie.Metascore}</span>
       <p>{movie.Plot}</p>
+      <BtnBackHome />
     </div>
   );
 }

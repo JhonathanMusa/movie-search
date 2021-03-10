@@ -23,12 +23,19 @@ export const SearchMovie = (props) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        className="input is-primary"
-        onChange={handleChange}
-        placeholder="Search Movie.."
-      />
-      <button className="button is-primary">Search</button>
+      <div className="field has-addons">
+        <div className="control">
+          <input
+            className="input is-primary"
+            onChange={handleChange}
+            placeholder="Search Movie.."
+            type="text"
+          />
+        </div>
+        <div className="control">
+          <button className="button is-primary">Search</button>
+        </div>
+      </div>
     </form>
   );
 };
