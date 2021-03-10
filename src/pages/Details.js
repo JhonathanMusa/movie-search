@@ -1,47 +1,41 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const OMDB_KEY = "1989edaf";
 
-export class Detail extends Component {
-  static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.object,
-      isExact: PropTypes.bool,
-      path: PropTypes.string,
-      url: PropTypes.string,
-    }),
-  };
+export default function Detail(props) {
+  const [movie, setMovies] = useState({});
 
-  state = {
-    movie: {},
-  };
+  const { movieId } = props.match.params;
 
-  _fetchMovie = ({ id }) => {
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&i=${id}`)
-      .then((res) => res.json())
-      .then((movie) => {
-        console.log({ movie });
-        this.setState({ movie });
-      });
-  };
+  useEffect(() => {
+    const fetch = async ({ id }) => {
+      try {
+        const { data } = await axios.get(
+          `http://www.omdbapi.com/?apikey=${OMDB_KEY}&i=${id}`
+        );
+        setMovies({
+          Title: data.Title,
+          Poster: data.Poster,
+          Actors: data.Actors,
+          Metascore: data.Metascore,
+          Plot: data.Plot,
+        });
+        console.log({ data });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetch({ id: movieId });
+  }, [movieId]);
 
-  componentDidMount() {
-    console.log(this.props);
-    const { movieId } = this.props.match.params;
-    this._fetchMovie({ id: movieId });
-  }
-
-  render() {
-    const { Title, Poster, Actors, Metascore, Plot } = this.state.movie;
-    return (
-      <div>
-        <h1>{Title}</h1>
-        <img src={Poster} alt={Title} />
-        <h3>{Actors}</h3>
-        <span>{Metascore}</span>
-        <p>{Plot}</p>
-      </div>
-    );
-  }
+  return (
+    <div className="container">
+      <h1>{movie.Title}</h1>
+      <img src={movie.Poster} alt={movie.Title} />
+      <h3>{movie.Actors}</h3>
+      <span>{movie.Metascore}</span>
+      <p>{movie.Plot}</p>
+    </div>
+  );
 }

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const OMDB_KEY = "1989edaf";
@@ -12,10 +13,10 @@ export const SearchMovie = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${searchInput}`)
-      .then((res) => res.json())
+    axios
+      .post(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${searchInput}`)
       .then((result) => {
-        const { Search = [], totalResults = 0 } = result;
+        const { Search = [], totalResults = 0 } = result.data;
         console.log({ Search, totalResults });
         props.onResults(Search);
       });
