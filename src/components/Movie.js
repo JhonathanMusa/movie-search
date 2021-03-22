@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
-export const Movie = ({ id, poster, title, year }) => {
+export const Movie = (props) => {
+  const { id, poster, title, year } = props;
   return (
     <Link to={`/detail/${id}`} className="card">
       <div className="card-image">

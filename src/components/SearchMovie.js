@@ -13,13 +13,20 @@ export const SearchMovie = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${searchInput}`)
-      .then((result) => {
-        const { Search = [], totalResults = 0 } = result.data;
+    const insertData = async () => {
+      try {
+        const { data } = await axios.post(
+          `http://www.omdbapi.com/?apikey=${OMDB_KEY}&s=${searchInput}`
+        );
+        const { Search = [], totalResults = 0 } = data;
         console.log({ Search, totalResults });
         props.onResults(Search);
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    insertData();
   };
   return (
     <form onSubmit={handleSubmit}>
