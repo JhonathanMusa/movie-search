@@ -7,7 +7,7 @@ import Detail from "./pages/Details";
 import "./App.css";
 import "bulma/css/bulma.css";
 
-function App() {
+const App = () => {
   return (
     <Router className="App">
       <Route exact path="/" component={Home} />
